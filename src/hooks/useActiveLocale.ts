@@ -1,10 +1,10 @@
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, SupportedLocale } from 'constants/locales'
 import { useMemo } from 'react'
-import store from 'state'
+// import store from 'state'
 import { useUserLocale } from 'state/user/hooks'
 
 import useParsedQueryString from './useParsedQueryString'
-import { parsedQueryString } from './useParsedQueryString'
+// import { parsedQueryString } from './useParsedQueryString'
 
 /**
  * Given a locale string (e.g. from user agent), return the best match for corresponding SupportedLocale
@@ -33,12 +33,12 @@ export function navigatorLocale(): SupportedLocale | undefined {
   return parseLocale(language)
 }
 
-function storeLocale(): SupportedLocale | undefined {
-  return store.getState().user.userLocale ?? undefined
-}
+// function storeLocale(): SupportedLocale | undefined {
+//   return store.getState().user.userLocale ?? undefined
+// }
 
-export const initialLocale =
-  parseLocale(parsedQueryString().lng) ?? storeLocale() ?? navigatorLocale() ?? DEFAULT_LOCALE
+export const initialLocale = DEFAULT_LOCALE
+// parseLocale(parsedQueryString().lng) ?? storeLocale() ?? navigatorLocale() ?? DEFAULT_LOCALE
 
 function useUrlLocale() {
   const parsed = useParsedQueryString()
@@ -52,5 +52,6 @@ function useUrlLocale() {
 export function useActiveLocale(): SupportedLocale {
   const urlLocale = useUrlLocale()
   const userLocale = useUserLocale()
-  return useMemo(() => urlLocale ?? userLocale ?? navigatorLocale() ?? DEFAULT_LOCALE, [urlLocale, userLocale])
+  // return useMemo(() => urlLocale ?? userLocale ?? navigatorLocale() ?? DEFAULT_LOCALE, [urlLocale, userLocale])
+  return useMemo(() => urlLocale ?? userLocale ?? DEFAULT_LOCALE, [urlLocale, userLocale])
 }

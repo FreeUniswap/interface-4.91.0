@@ -31,10 +31,10 @@ export default function Updater(): null {
   }, [fetchList, isWindowVisible, lists])
 
   useEffect(() => {
-    if (chainId && [SupportedChainId.OPTIMISM, SupportedChainId.OPTIMISTIC_KOVAN].includes(chainId)) {
+    if (chainId && [SupportedChainId.OPTIMISM].includes(chainId)) {
       dispatch(enableList(OPTIMISM_LIST))
     }
-    if (chainId && [SupportedChainId.ARBITRUM_ONE, SupportedChainId.ARBITRUM_RINKEBY].includes(chainId)) {
+    if (chainId && [SupportedChainId.ARBITRUM_ONE].includes(chainId)) {
       dispatch(enableList(ARBITRUM_LIST))
     }
     if (chainId && isCelo(chainId)) {

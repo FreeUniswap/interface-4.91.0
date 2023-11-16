@@ -2,8 +2,8 @@ import { Trans } from '@lingui/macro'
 import useScrollPosition from '@react-hook/window-scroll'
 import { useWeb3React } from '@web3-react/core'
 import { getChainInfoOrDefault } from 'constants/chainInfo'
-import { SupportedChainId } from 'constants/chains'
-import useTheme from 'hooks/useTheme'
+// import { SupportedChainId } from 'constants/chains'
+// import useTheme from 'hooks/useTheme'
 import { darken } from 'polished'
 import { NavLink, useLocation } from 'react-router-dom'
 import { Text } from 'rebass'
@@ -248,7 +248,7 @@ export default function Header() {
 
   const userEthBalance = useNativeCurrencyBalances(account ? [account] : [])?.[account ?? '']
   const [darkMode] = useDarkModeManager()
-  const { deprecated_white, deprecated_black } = useTheme()
+  // const { deprecated_white, deprecated_black } = useTheme()
 
   const toggleClaimModal = useToggleSelfClaimModal()
 
@@ -281,7 +281,7 @@ export default function Header() {
       <ClaimModal />
       <Title href=".">
         <UniIcon>
-          <Logo fill={darkMode ? deprecated_white : deprecated_black} width="24px" height="100%" title="logo" />
+          <Logo fill={darkMode ? 'lime' : 'green'} width="24px" height="100%" title="logo" />
           <HolidayOrnament />
         </UniIcon>
       </Title>
@@ -297,11 +297,11 @@ export default function Header() {
         >
           <Trans>Pool</Trans>
         </StyledNavLink>
-        {(!chainId || chainId === SupportedChainId.MAINNET) && (
+        {/* {(!chainId || chainId === SupportedChainId.MAINNET) && (
           <StyledNavLink id={`vote-nav-link`} to={'/vote'}>
             <Trans>Vote</Trans>
           </StyledNavLink>
-        )}
+        )} */}
         <StyledExternalLink id={`charts-nav-link`} href={infoLink}>
           <Trans>Charts</Trans>
           <sup>↗</sup>

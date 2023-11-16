@@ -80,14 +80,14 @@ function colors(darkMode: boolean): Colors {
     deprecated_advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
 
     //primary colors
-    deprecated_primary1: darkMode ? '#2172E5' : '#E8006F',
+    deprecated_primary1: darkMode ? '#0c0' : '#0c0',
     deprecated_primary2: darkMode ? '#3680E7' : '#FF8CC3',
     deprecated_primary3: darkMode ? '#4D8FEA' : '#FF99C9',
     deprecated_primary4: darkMode ? '#376bad70' : '#F6DDE8',
-    deprecated_primary5: darkMode ? '#153d6f70' : '#FDEAF1',
+    deprecated_primary5: darkMode ? '#388E0E' : '#A2DE85',
 
     // color text
-    deprecated_primaryText1: darkMode ? '#5090ea' : '#D50066',
+    deprecated_primaryText1: darkMode ? '#A2DE85' : '#388E0E',
 
     // secondary colors
     deprecated_secondary1: darkMode ? '#2172E5' : '#E8006F',

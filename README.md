@@ -1,51 +1,30 @@
-# Uniswap Labs Interface
+# Free Interface for Uniswap Protocol
 
-[![Unit Tests](https://github.com/Uniswap/interface/actions/workflows/unit-tests.yaml/badge.svg)](https://github.com/Uniswap/interface/actions/workflows/unit-tests.yaml)
-[![Integration Tests](https://github.com/Uniswap/interface/actions/workflows/integration-tests.yaml/badge.svg)](https://github.com/Uniswap/interface/actions/workflows/integration-tests.yaml)
-[![Lint](https://github.com/Uniswap/interface/actions/workflows/lint.yml/badge.svg)](https://github.com/Uniswap/interface/actions/workflows/lint.yml)
-[![Release](https://github.com/Uniswap/interface/actions/workflows/release.yaml/badge.svg)](https://github.com/Uniswap/interface/actions/workflows/release.yaml)
-[![Crowdin](https://badges.crowdin.net/uniswap-interface/localized.svg)](https://crowdin.com/project/uniswap-interface)
+Uniswap labs began charging fees for using its interface in October 2023. This is a free version of an older interface (August 2022) that allows you to use the Uniswap protocol without paying fees.
 
-An open source interface for Uniswap -- a protocol for decentralized exchange of Ethereum tokens.
+- Website: [uniswap.freeinterface.org](https://uniswap.freeinterface.org/)
+- Mirror 1: [freeuniswap.org](http://freeuniswap.org/)
+- Mirror 2: [freeuniswap.com](http://freeuniswap.com/)
+- Mirror 3: [uniswapfree.org](http://uniswapfree.org/)
+- Mirror 4: [uniswapfree.com](http://uniswapfree.com/)
+- Interface: [app.uniswap.freeinterface.org](https://app.uniswap.freeinterface.org)
+- Twitter: [@freeuniswap](https://twitter.com/freeuniswap)
 
-- Website: [uniswap.org](https://uniswap.org/)
-- Interface: [app.uniswap.org](https://app.uniswap.org)
-- Docs: [uniswap.org/docs/](https://docs.uniswap.org/)
-- Twitter: [@Uniswap](https://twitter.com/Uniswap)
-- Reddit: [/r/Uniswap](https://www.reddit.com/r/Uniswap/)
-- Email: [contact@uniswap.org](mailto:contact@uniswap.org)
-- Discord: [Uniswap](https://discord.gg/FCfyBSbCU5)
-- Whitepapers:
-  - [V1](https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig)
-  - [V2](https://uniswap.org/whitepaper.pdf)
-  - [V3](https://uniswap.org/whitepaper-v3.pdf)
 
-## Accessing the Uniswap Interface
+## Changes in the interface
 
-To access the Uniswap Interface, use an IPFS gateway link from the
-[latest release](https://github.com/Uniswap/uniswap-interface/releases/latest),
-or visit [app.uniswap.org](https://app.uniswap.org).
+We have made some changes to the original interface to adapt it to open use, improving privacy:
 
-## Unsupported tokens
+- Blocked addresses and tokens have been removed
+- Google analytics has been removed
+- Amplitude analytics has been removed
+- Removed wallet provider Fortmatic, which also collects user data
+- Uniswap protocol governance access has been removed
+- Links to Uniswap Labs legal notices and terms of use have been removed
+- Links to user services provided by Uniswap Labs have been removed
+- Colors have been changed to distinguish it from the official interface
+- Automatic translation to the browser language has been removed as the translations are of poor quality and many users complained about this aspect. It is now optional to activate the interface translation.
+- The transaction router always runs on the client side
+- Deprecated Ethereum testnets have been removed
 
-Check out `useUnsupportedTokenList()` in [src/state/lists/hooks.ts](./src/state/lists/hooks.ts) for blocking tokens in your instance of the interface.
-
-You can block an entire list of tokens by passing in a tokenlist like [here](./src/constants/lists.ts) or you can block specific tokens by adding them to [unsupported.tokenlist.json](./src/constants/tokenLists/unsupported.tokenlist.json).
-
-## Contributions
-
-For steps on local deployment, development, and code contribution, please see [CONTRIBUTING](./CONTRIBUTING.md).
-
-## Accessing Uniswap V2
-
-The Uniswap Interface supports swapping, adding liquidity, removing liquidity and migrating liquidity for Uniswap protocol V2.
-
-- Swap on Uniswap V2: https://app.uniswap.org/#/swap?use=v2
-- View V2 liquidity: https://app.uniswap.org/#/pool/v2
-- Add V2 liquidity: https://app.uniswap.org/#/add/v2
-- Migrate V2 liquidity to V3: https://app.uniswap.org/#/migrate/v2
-
-## Accessing Uniswap V1
-
-The Uniswap V1 interface for mainnet and testnets is accessible via IPFS gateways
-linked from the [v1.0.0 release](https://github.com/Uniswap/uniswap-interface/releases/tag/v1.0.0).
+This version of the interface predates the deployment of the Uniswap universal router and does not include support for NFTs. It only allows swaps and liquidity management in Uniswap V2 and V3.

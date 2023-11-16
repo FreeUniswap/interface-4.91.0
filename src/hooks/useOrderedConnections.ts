@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { BACKFILLABLE_WALLETS } from 'state/connection/constants'
 import { useAppSelector } from 'state/hooks'
 
-const SELECTABLE_WALLETS = [...BACKFILLABLE_WALLETS, ConnectionType.FORTMATIC]
+const SELECTABLE_WALLETS = [...BACKFILLABLE_WALLETS] // , ConnectionType.FORTMATIC].
 
 export default function useOrderedConnections() {
   const selectedWallet = useAppSelector((state) => state.user.selectedWallet)

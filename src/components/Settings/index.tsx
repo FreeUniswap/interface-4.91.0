@@ -2,7 +2,7 @@
 import { t, Trans } from '@lingui/macro'
 import { Percent } from '@uniswap/sdk-core'
 import { useWeb3React } from '@web3-react/core'
-import { sendEvent } from 'components/analytics'
+// import { sendEvent } from 'components/analytics'
 import { isSupportedChainId } from 'lib/hooks/routing/clientSideSmartOrderRouter'
 import { useContext, useRef, useState } from 'react'
 import { Settings, X } from 'react-feather'
@@ -12,7 +12,8 @@ import styled, { ThemeContext } from 'styled-components/macro'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import { useModalIsOpen, useToggleSettingsMenu } from '../../state/application/hooks'
 import { ApplicationModal } from '../../state/application/reducer'
-import { useClientSideRouter, useExpertModeManager } from '../../state/user/hooks'
+import { useExpertModeManager } from '../../state/user/hooks'
+// import { useClientSideRouter, useExpertModeManager } from '../../state/user/hooks'
 import { ThemedText } from '../../theme'
 import { ButtonError } from '../Button'
 import { AutoColumn } from '../Column'
@@ -130,7 +131,7 @@ export default function SettingsTab({ placeholderSlippage }: { placeholderSlippa
 
   const [expertMode, toggleExpertMode] = useExpertModeManager()
 
-  const [clientSideRouter, setClientSideRouter] = useClientSideRouter()
+  // const [clientSideRouter, setClientSideRouter] = useClientSideRouter()
 
   // show confirmation view before turning on
   const [showConfirmation, setShowConfirmation] = useState(false)
@@ -205,7 +206,7 @@ export default function SettingsTab({ placeholderSlippage }: { placeholderSlippa
             <Text fontWeight={600} fontSize={14}>
               <Trans>Interface Settings</Trans>
             </Text>
-            {isSupportedChainId(chainId) && (
+            {/* {isSupportedChainId(chainId) && (
               <RowBetween>
                 <RowFixed>
                   <ThemedText.DeprecatedBlack fontWeight={400} fontSize={14} color={theme.deprecated_text2}>
@@ -225,7 +226,7 @@ export default function SettingsTab({ placeholderSlippage }: { placeholderSlippa
                   }}
                 />
               </RowBetween>
-            )}
+            )} */}
             <RowBetween>
               <RowFixed>
                 <ThemedText.DeprecatedBlack fontWeight={400} fontSize={14} color={theme.deprecated_text2}>

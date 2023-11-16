@@ -32,7 +32,7 @@ import Swap from './Swap'
 import { OpenClaimAddressModalAndRedirectToSwap, RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
 
 // lazy load vote related pages
-const Vote = lazy(() => import('./Vote'))
+// const Vote = lazy(() => import('./Vote'))
 
 const AppWrapper = styled.div`
   display: flex;
@@ -71,8 +71,8 @@ function getCurrentPageFromLocation(locationPathname: string): PageName | undefi
   switch (locationPathname) {
     case '/swap':
       return PageName.SWAP_PAGE
-    case '/vote':
-      return PageName.VOTE_PAGE
+    // case '/vote':
+    //   return PageName.VOTE_PAGE
     case '/pool':
       return PageName.POOL_PAGE
     default:
@@ -105,8 +105,8 @@ export default function App() {
             <TopLevelModals />
             <Suspense fallback={<Loader />}>
               <Routes>
-                <Route path="vote/*" element={<Vote />} />
-                <Route path="create-proposal" element={<Navigate to="/vote/create-proposal" replace />} />
+                {/* <Route path="vote/*" element={<Vote />} /> */}
+                {/* <Route path="create-proposal" element={<Navigate to="/vote/create-proposal" replace />} /> */}
                 <Route path="claim" element={<OpenClaimAddressModalAndRedirectToSwap />} />
                 <Route path="uni" element={<Earn />} />
                 <Route path="uni/:currencyIdA/:currencyIdB" element={<Manage />} />

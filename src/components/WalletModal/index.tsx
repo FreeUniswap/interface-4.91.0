@@ -6,7 +6,7 @@ import { CUSTOM_USER_PROPERTIES, EventName, WALLET_CONNECTION_RESULT } from 'com
 import { sendEvent } from 'components/analytics'
 import { AutoColumn } from 'components/Column'
 import { AutoRow } from 'components/Row'
-import { ConnectionType } from 'connection'
+// import { ConnectionType } from 'connection'
 import { getConnection, getConnectionName, getIsCoinbaseWallet, getIsInjected, getIsMetaMask } from 'connection/utils'
 import { useCallback, useEffect, useState } from 'react'
 import { ArrowLeft } from 'react-feather'
@@ -24,7 +24,7 @@ import AccountDetails from '../AccountDetails'
 import { LightCard } from '../Card'
 import Modal from '../Modal'
 import { CoinbaseWalletOption, OpenCoinbaseWalletOption } from './CoinbaseWalletOption'
-import { FortmaticOption } from './FortmaticOption'
+// import { FortmaticOption } from './FortmaticOption'
 import { InjectedOption, InstallMetaMaskOption, MetaMaskOption } from './InjectedOption'
 import PendingView from './PendingView'
 import { WalletConnectOption } from './WalletConnectOption'
@@ -192,9 +192,9 @@ export default function WalletModal({
       try {
         // Fortmatic opens it's own modal on activation to log in. This modal has a tabIndex
         // collision into the WalletModal, so we special case by closing the modal.
-        if (connectionType === ConnectionType.FORTMATIC) {
-          toggleWalletModal()
-        }
+        // if (connectionType === ConnectionType.FORTMATIC) {
+        //   toggleWalletModal()
+        // }
 
         setPendingConnector(connector)
         setWalletView(WALLET_VIEWS.PENDING)
@@ -213,7 +213,7 @@ export default function WalletModal({
         })
       }
     },
-    [dispatch, toggleWalletModal]
+    [dispatch] //, toggleWalletModal]
   )
 
   function getOptions() {
@@ -248,14 +248,14 @@ export default function WalletModal({
     const walletConnectionOption =
       (!isInjectedMobileBrowser && <WalletConnectOption tryActivation={tryActivation} />) ?? null
 
-    const fortmaticOption = (!isInjectedMobileBrowser && <FortmaticOption tryActivation={tryActivation} />) ?? null
+    // const fortmaticOption = (!isInjectedMobileBrowser && <FortmaticOption tryActivation={tryActivation} />) ?? null
 
     return (
       <>
         {injectedOption}
         {coinbaseWalletOption}
         {walletConnectionOption}
-        {fortmaticOption}
+        {/* {fortmaticOption} */}
       </>
     )
   }
@@ -311,7 +311,7 @@ export default function WalletModal({
               />
             )}
             {walletView !== WALLET_VIEWS.PENDING && <OptionGrid data-testid="option-grid">{getOptions()}</OptionGrid>}
-            {!pendingError && (
+            {/* {!pendingError && (
               <LightCard>
                 <AutoRow style={{ flexWrap: 'nowrap' }}>
                   <ThemedText.DeprecatedBody fontSize={12}>
@@ -332,7 +332,7 @@ export default function WalletModal({
                   </ThemedText.DeprecatedBody>
                 </AutoRow>
               </LightCard>
-            )}
+            )} */}
           </AutoColumn>
         </ContentWrapper>
       </UpperSection>

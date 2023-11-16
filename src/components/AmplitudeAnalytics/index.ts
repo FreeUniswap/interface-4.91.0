@@ -1,4 +1,4 @@
-import { Identify, identify, init, track } from '@amplitude/analytics-browser'
+import { Identify } from '@amplitude/analytics-browser'
 
 /**
  * Initializes Amplitude with API key for project.
@@ -9,29 +9,29 @@ import { Identify, identify, init, track } from '@amplitude/analytics-browser'
 export function initializeAnalytics(isDevEnvironment = process.env.NODE_ENV === 'development') {
   if (isDevEnvironment) return
 
-  const API_KEY = process.env.REACT_APP_AMPLITUDE_KEY
-  if (typeof API_KEY === 'undefined') {
-    throw new Error(`REACT_APP_AMPLITUDE_KEY must be a defined environment variable`)
-  }
+  // const API_KEY = process.env.REACT_APP_AMPLITUDE_KEY
+  // if (typeof API_KEY === 'undefined') {
+  //   throw new Error(`REACT_APP_AMPLITUDE_KEY must be a defined environment variable`)
+  // }
 
-  init(
-    API_KEY,
-    /* userId= */ undefined, // User ID should be undefined to let Amplitude default to Device ID
-    /* options= */ {
-      // See documentation: https://www.docs.developers.amplitude.com/data/sdks/javascript/#track-referrers
-      includeReferrer: true,
-      // See documentation: https://www.docs.developers.amplitude.com/data/sdks/javascript/#track-utm-parameters
-      includeUtm: true,
-      // Disable tracking of private user information by Amplitude
-      trackingOptions: {
-        ipAddress: false,
-        carrier: false,
-        city: false,
-        region: false,
-        dma: false, // designated market area
-      },
-    }
-  )
+  // init(
+  //   API_KEY,
+  //   /* userId= */ undefined, // User ID should be undefined to let Amplitude default to Device ID
+  //   /* options= */ {
+  //     // See documentation: https://www.docs.developers.amplitude.com/data/sdks/javascript/#track-referrers
+  //     includeReferrer: true,
+  //     // See documentation: https://www.docs.developers.amplitude.com/data/sdks/javascript/#track-utm-parameters
+  //     includeUtm: true,
+  //     // Disable tracking of private user information by Amplitude
+  //     trackingOptions: {
+  //       ipAddress: false,
+  //       carrier: false,
+  //       city: false,
+  //       region: false,
+  //       dma: false, // designated market area
+  //     },
+  //   }
+  // )
 }
 
 /** Sends an event to Amplitude. */
@@ -41,7 +41,7 @@ export function sendAnalyticsEvent(eventName: string, eventProperties?: Record<s
     return
   }
 
-  track(eventName, eventProperties)
+  // track(eventName, eventProperties)
 }
 
 /**
@@ -64,7 +64,7 @@ class UserModel {
       mutate(new Proxy(new Identify(), { get: log }))
       return
     }
-    identify(mutate(new Identify()))
+    // identify(mutate(new Identify()))
   }
 
   set(key: string, value: string | number) {

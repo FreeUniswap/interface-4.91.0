@@ -8,10 +8,11 @@ import useIsValidBlock from 'lib/hooks/useIsValidBlock'
 import ms from 'ms.macro'
 import { useMemo } from 'react'
 import { useGetQuoteQuery } from 'state/routing/slice'
-import { useClientSideRouter } from 'state/user/hooks'
 
 import { GetQuoteResult, InterfaceTrade, TradeState } from './types'
 import { computeRoutes, transformRoutesToTrade } from './utils'
+
+// import { useClientSideRouter } from 'state/user/hooks'
 
 export enum RouterPreference {
   CLIENT = 'client',
@@ -41,17 +42,17 @@ export function useRoutingAPITrade<TTradeType extends TradeType>(
     [amountSpecified, otherCurrency, tradeType]
   )
 
-  const [clientSideRouterStoredPreference] = useClientSideRouter()
-  const clientSideRouter = routerPreference
-    ? routerPreference === RouterPreference.CLIENT
-    : clientSideRouterStoredPreference
+  // const [clientSideRouterStoredPreference] = useClientSideRouter()
+  // const clientSideRouter = routerPreference
+  //   ? routerPreference === RouterPreference.CLIENT
+  //   : clientSideRouterStoredPreference
 
   const queryArgs = useRoutingAPIArguments({
     tokenIn: currencyIn,
     tokenOut: currencyOut,
     amount: amountSpecified,
     tradeType,
-    useClientSideRouter: clientSideRouter,
+    useClientSideRouter: true,
   })
 
   const { isLoading, isError, data, currentData } = useGetQuoteQuery(queryArgs ?? skipToken, {
