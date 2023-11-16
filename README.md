@@ -13,7 +13,7 @@ Uniswap labs began charging fees for using its interface in October 2023. This i
 
 ## Changes in the interface
 
-We have made some changes to the original interface to adapt it to open use, improving privacy:
+This is a fork of version 4.91.0 of the official interface, dated August 2022. We have made some changes to the original interface to adapt it to open use, improving privacy:
 
 - Blocked addresses and tokens have been removed
 - Google analytics has been removed
